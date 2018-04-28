@@ -9,9 +9,20 @@ export default class AllRoutes extends Component {
     return(
       <BrowserRouter>
         <div>
-          <Route exact path="/" component={Welcome} />
-          <Route path="/" component={CartList} />
-          <Route path="/" component={Login} />
+          <header>
+            <div className="container">
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/cart">Cart</Link></li>
+                <li><Link to="/login">Login</Link></li>
+              </ul>
+            </div>
+          </header>
+          <div className="container">
+            <Route exact path="/" component={Welcome} />
+            <Route path="/cart" component={CartList} />
+            <Route path="/login" component={Login} />
+          </div>
         </div>
       </BrowserRouter>
     )

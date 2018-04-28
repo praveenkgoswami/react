@@ -1,7 +1,7 @@
 #root{}
-  header{
-    background: #ddd;
-  }
+header{
+  background: #ddd;
+}
 header ul{
   margin: 0;
   padding: 0;
@@ -11,7 +11,10 @@ header ul li{
   display: inline-block;
   padding: 10px;
 }
-h2{
+header ul li a{
+  color: #3b3b3b;
+}
+h1,h2{
   margin-top: 2rem !important;
 }
 ul.list{
