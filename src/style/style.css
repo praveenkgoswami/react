@@ -1,6 +1,15 @@
-#root{
-  max-width: 400px;
-  margin: 0 auto;
+#root{}
+  header{
+    background: #ddd;
+  }
+header ul{
+  margin: 0;
+  padding: 0;
+}
+header ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
 }
 h2{
   margin-top: 2rem !important;
@@ -19,7 +28,7 @@ ul.list li button.btn{
   top: .75rem;
 }
 .item{
-  width: 40%
+  width: 55%
 }
 .price,.quantity{
   width: 12%;
@@ -32,4 +41,7 @@ ul.list li button.btn{
 }
 .total-wrap span:nth-child(2){
   float: right;
+}
+.cart-app-container{
+  margin-bottom: 0.5rem;
 }
