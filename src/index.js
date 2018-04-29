@@ -16,10 +16,8 @@ class App extends Component{
     super (props);
   }
     render(){
-      return(
-        <div id="main">
-          <AllRoutes />
-        </div>
+      return(        
+        <AllRoutes />
       );
     };
 };
