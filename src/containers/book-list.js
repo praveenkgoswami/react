@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bookCliked } from '../actions';
 
 class BookList extends Component {
   renderList() {
     return this.props.books.map((book) => {
       return(
-        <li key={book.title} className="list-group-item">{book.title}</li>
+        <li
+          key={book.title}
+          className="list-group-item"
+          onClick={()=> this.props.myBookclicked(book.title)}>
+          {book.title}, {book.count}
+        </li>
       );
     });
   }
@@ -24,4 +30,17 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(BookList);
+function mapDispatchToProps(dispatch) {
+  return{
+    myBookclicked(title){
+        dispatch(bookCliked(title));
+    }
+  };
+}
+
+BookList.defaultProps = {
+  books: [],
+  myBookclicked: {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
