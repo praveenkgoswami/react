@@ -1,6 +1,7 @@
-export function bookCliked(title) {
+export function bookCliked(title, count) {
   return{
     type: "BOOK_CLICKED",
-    title
+    title,
+    count
   }
 }

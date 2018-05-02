@@ -10,13 +10,13 @@ export default function BooksReducer(state = initial, action) {
     case "FETCH_HISTORY":
     return Object.assign({}, state, { bookList:[]});
     case "BOOK_CLICKED":
-      console.log('book clicked', action.title, action.count);
       const index = state.bookList.findIndex(
         book => book.title === action.title
       );
     if( index > -1 ){
       const bookList = [...state.bookList];
       bookList[index].count += 1;
+      console.log('book clicked', action.title, action.count+1);
       return { ...state, bookList};
     }
     return state;
