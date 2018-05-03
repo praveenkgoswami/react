@@ -7,13 +7,13 @@ import NoMatch from './nomatch';
 import BooksContainer from './books_container';
 import { Provider } from 'react-redux';
 import reducer from '../reducers';
-import { createStore } from 'redux';
+import configureStore from '../configureStore';
 
 export default class AllRoutes extends Component {
   render() {
     return(
       <div id="main">
-        <Provider store={createStore(reducer)}>
+        <Provider store={configureStore(reducer)}>
           <Router>
             <div>
               <header>

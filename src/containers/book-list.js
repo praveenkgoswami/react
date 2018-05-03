@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bookCliked } from '../actions';
+import { fetchBooks, bookCliked, bookAdded } from '../actions';
 
 class BookList extends Component {
+  constructor(props) {
+    super (props);
+
+    this.state = {
+      newBook: ''
+    };
+  }
+
+  componentDidMount(){
+    this.props.fetchBooksFromStore();
+  }
+
+  onChangeNewBook(newBook) {
+    this.setState({newBook});
+  }
+
+  addnewBook = () => {
+    this.props.addBook(this.state.newBook);
+    this.setState({ newBook: '' })
+  }
+
   renderList() {
     return this.props.books.map((book) => {
       return(
@@ -24,9 +45,11 @@ class BookList extends Component {
         <div className="">
           <div className="input-group">
             <input className="form-control"
-            placeholder="Add Book"/>
+            placeholder="Add Book"
+            value={this.state.newBook}
+            onChange={e => this.onChangeNewBook(e.target.value )} />
             <div className="input-group-append">
-              <button className="btn btn-outline-secondary" type="button">Add</button>
+              <button className="btn btn-outline-secondary" type="button" onClick={this.addnewBook}>Add</button>
             </div>
           </div>
         </div>
@@ -43,8 +66,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return{
+    fetchBooksFromStore(){
+      dispatch(fetchBooks());
+    },
     myBookclicked(title,count){
         dispatch(bookCliked(title,count));
+    },
+    addBook(newBook){
+      dispatch(bookAdded(newBook));
     }
   };
 }
