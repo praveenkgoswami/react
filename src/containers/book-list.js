@@ -58,13 +58,13 @@ class BookList extends Component {
   }
 }
 
-function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return{
     books: state.books.bookList
   };
 }
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return{
     fetchBooksFromStore(){
       dispatch(fetchBooks());
@@ -84,3 +84,5 @@ BookList.defaultProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+
+export { BookList as BookListComponent };

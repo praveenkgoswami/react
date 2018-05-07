@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BooksContainer Should render correctly 1`] = `
+<div
+  className="books-container"
+>
+  <h2
+    className="text-center"
+  >
+    Books List
+  </h2>
+  <Connect(BookList) />
+</div>
+`;
